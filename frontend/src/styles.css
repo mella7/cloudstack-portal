@@ -1,0 +1,401 @@
+:root {
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --text: #1c2330;
+  --muted: #5f6b7a;
+  --border: #d9dee5;
+  --accent: #1f5fbf;
+  --ok: #17703a;
+  --err: #b3261e;
+  --warn: #8a5a00;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.5rem;
+  background: #16202e;
+}
+
+.brand {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+}
+
+.card-attention {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(31, 95, 191, 0.15);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.muted,
+.hint {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+input,
+select {
+  font: inherit;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #9aa5b3;
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  width: 100%;
+}
+
+textarea {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #9aa5b3;
+  border-radius: 6px;
+  width: 100%;
+  resize: vertical;
+}
+
+.advanced {
+  border-top: 1px solid var(--border);
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+}
+
+.advanced summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+
+.check input {
+  width: auto;
+}
+
+textarea[aria-invalid='true'],
+input[aria-invalid='true'],
+select[aria-invalid='true'] {
+  border-color: var(--err);
+}
+
+.field-error {
+  color: var(--err);
+  font-size: 0.875rem;
+}
+
+button {
+  font: inherit;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #9aa5b3;
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+
+.row-actions button {
+  margin-right: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.875rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #e6e9ee;
+  color: #36414f;
+}
+
+.badge-destroy {
+  margin-left: 0.5rem;
+  background: #fbdcd9;
+  color: #8c1d18;
+}
+
+button.danger {
+  background: var(--err);
+  border-color: var(--err);
+  color: #fff;
+  font-weight: 600;
+}
+
+.card-danger {
+  border-color: var(--err);
+  box-shadow: 0 0 0 2px rgba(179, 38, 30, 0.15);
+}
+
+.badge-dry {
+  background: #ffe7a8;
+  color: #5c3d00;
+}
+
+.status-planning,
+.status-applying,
+.status-queued {
+  background: #dce8fb;
+  color: #174a96;
+}
+
+.status-awaiting_confirmation {
+  background: #ffe7a8;
+  color: #5c3d00;
+}
+
+.status-done,
+.vm-running {
+  background: #d8f0e0;
+  color: #125a2e;
+}
+
+.status-failed {
+  background: #fbdcd9;
+  color: #8c1d18;
+}
+
+.spinner {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+.error-box,
+.ok-box {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  margin: 0.75rem 0 0;
+}
+
+.error-box {
+  background: #fdecea;
+  color: #8c1d18;
+  border: 1px solid #f3b9b4;
+}
+
+.ok-box {
+  background: #e7f5ec;
+  color: #125a2e;
+  border: 1px solid #b5dcc3;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.plan-counts .add,
+.action-create {
+  color: var(--ok);
+}
+
+.plan-counts .destroy,
+.action-delete,
+.action-replace {
+  color: var(--err);
+}
+
+.action-update {
+  color: var(--warn);
+}
+
+.log {
+  background: #10161f;
+  color: #d5dbe3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding: 0.75rem;
+  border-radius: 6px;
+  height: 26rem;
+  overflow: auto;
+}
+
+.log .muted {
+  color: #8d99a8;
+}
+
+.log-line {
+  white-space: pre;
+}
+
+.log-time {
+  color: #7f8b9a;
+  margin-right: 0.75rem;
+  user-select: none;
+}
+
+.log-error {
+  color: #ff8f85;
+}
+
+.log-cmd {
+  color: #8fc1ff;
+}
+
+.log-ok {
+  color: #7fd89b;
+}
+
+.conn {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.conn-open {
+  color: var(--ok);
+}
+
+.conn-reconnecting {
+  color: var(--warn);
+}

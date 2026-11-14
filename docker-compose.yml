@@ -1,0 +1,29 @@
+# Values come from .env next to this file (see .env.example).
+# Ports are bound to localhost only: the portal has no login.
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DRY_RUN: ${DRY_RUN:-true}
+      CLOUDSTACK_API_URL: ${CLOUDSTACK_API_URL:-}
+      CLOUDSTACK_API_KEY: ${CLOUDSTACK_API_KEY:-}
+      CLOUDSTACK_SECRET_KEY: ${CLOUDSTACK_SECRET_KEY:-}
+      CORS_ORIGINS: http://localhost:8080
+    volumes:
+      - portal-data:/srv/data # job database, working directories, Terraform state
+    ports:
+      - "127.0.0.1:8000:8000"
+    # A stop waits for running applies (SHUTDOWN_GRACE_SECONDS, default 300).
+    stop_grace_period: 6m
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "127.0.0.1:8080:80"
+
+volumes:
+  portal-data:
